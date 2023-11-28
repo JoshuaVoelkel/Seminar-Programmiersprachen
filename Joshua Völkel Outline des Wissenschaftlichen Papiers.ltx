@@ -1,0 +1,131 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\textbf{Outline}
+
+\textbf{1. Einleitung:}
+
+In der Einleitung wird erklärt, was die Programmieraufgabe war und wovon
+die wissenschaftliche Arbeit handelt
+
+\textbf{2. Die Programmiersprache Rust}
+
+\textbf{2.1. Geschichte und Motivation}
+
+Es wird die Geschichte von Rust erzählt, wie es zur Entwicklung kam und
+was Rusts Zukunftspläne sind. Außerdem wird über die Motivation zur
+Kreation von Rust geschrieben und es werden kurz ein paar aktuelle
+Projekte, welche Rust benutzen, vorgestellt (1 Projekt mit 2-3 Sätzen,
+der Rest mit je einem halben Satz).
+
+\textbf{2.2 Besonderheiten der Programmiersprache Rust}
+
+Es wird ausführlich auf die Besonderheiten Rusts eingegangen. Dabei
+werden die besonderen Eigenschaften (Memory Safety ohne Gargabe
+Collection -- Ownership System, Zero Cost Abstractions, Fearless
+Concurrency und als eine interessante Mechanik unsafe Rust vorgestellt
+und ausführlich erklärt).\\
+Des Weiteren werden wird mit Cargo, (Unterpunkte: Paket-Management,
+Dependency Management, weitere Funktionen), der Rust Dokumentation,
+Rustdoc, Rustc (der Rust Compiler), Rustup, ein paar IDEs und der Rust
+Community alles zur Infrastruktur um Rust herum erläutert.
+
+\textbf{3. Das Programm}
+
+\textbf{3.1 Die Libraries}
+
+Es werden einige der wichtigen benutzten Libraries (Rust
+Standardbibliothek, Regex, Walkdir, Rayon) ausführlich erläutert, einige
+der häufig oder an wichtigen Stellen benutzten Funktionen der
+entsprechenden Libraries beschrieben und teilweise Codestellen als
+Beispiele mit angegeben. Außerdem wird erklärt, wieso zum
+Parallelisieren Rayon anstatt der Standardbibliothek verwendet wurde.
+
+\textbf{3.2 Schwierigkeiten mit der Programmieraufgabe/Optimierung des
+Programms}
+
+Die größte Schwierigkeit mit der Programmieraufgabe war die lange
+Laufzeit des Programms und das Arbeiten mit Subtitles.txt. Es wird
+beschrieben, wie diese Probleme mit Hilfe von Batches und Chunks gelöst
+wurden, wie das Programm parallelisiert wurde (falls dies nicht schon in
+Abschnitt 3.1 geschieht) und wie dies das Programm optimiert hat (es
+wurde schneller und hat weniger Ram verbraucht). Es wurde auch das Tool
+Memcheck zum Überprüfen von Memory Leaks benutzt, jedoch wurden bei der
+Überprüfung keine gefunden, was an Rusts Eigenschaften liegen sollte.
+
+Als Ergänzung wird je nach Wortanzahl noch erwähnt, wie der Rust
+Compiler und Fehlerindex bei der Lösung von Fehlern stark geholfen und
+das Arbeiten mit Rust sehr vereinfacht hat~
+
+\textbf{4. Fazit\\
+}Das Fazit wird von der Erfahrung und den Vor- und Nachteilen von Rust
+in Bezug auf die Implementierung des Programms und beim generellen
+Programmieren handeln
+
+// 2 Kommentare:
+
+1. Zu rein dem Code und der Umsetzung der Aufgabe an sich kann man
+meiner Meinung nach nicht besonders viel schreiben, was der
+wissenschaftlichen Arbeit Tiefe verleihen würde (in dem Sinne Problem X
+(z.~B. die Kontextzeilen) habe ich mit Code Y gelöst). Eine von Rusts
+Stärken ist schließlich die große Anzahl an hilfreichen Libraries, über
+welche deswegen auch ein Großteil von Punkt 3 gehen wird und da dadurch
+schon die wichtigen Punkte des Codes (z.B. die Eingabe und Ausgabe in
+die Konsole oder das Durchlaufen der Ordner) abgedeckt werden, wüsste
+ich nicht, was man sonst noch großartig schreiben sollte
+
+2. Ich habe das parallele Problem doch noch selbst lösen können, wir
+müssen also am 6. Dezember nicht mehr darüber reden.
+
+\end{document}
