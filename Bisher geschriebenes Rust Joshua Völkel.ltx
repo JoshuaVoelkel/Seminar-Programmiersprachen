@@ -1,0 +1,497 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+//Kommentar: Dies ist nur, was ich bisher geschrieben habe, falls sie
+Interesse haben, sich das durchzulesen. Ich habe es zwar online auf
+Rechtschreibung und Grammatik überprüft, aber nicht noch einmal auf
+falsche/doppelte Worte, die Fomulierung oder den Sinn überprüft .
+Quellenangaben habe ich auch nicht nicht hinzufügt (ich hab jedoch alle
+Quellen an einem sicheren Ort abgespeichert, damit ich das später noch
+machen kann)
+
+\textbf{Die Programmiersprache Rust}
+
+\textbf{Die Geschichte} \textbf{von Rust}
+
+Die Entwicklung Rusts startete 2006 als persönliches Projekt des Mozilla
+Mitarbeiters Greaygon Hoare. Daraufhin begann Mozilla, die Entwicklung
+von Rust im Rahmen eines experimentellen Browsers namens Servo
+finanziell zu unterstützten, was schließlich dazu führte, dass die
+Programmiersprache 2010 offiziell in einer Präsentation ankündigt wurde.
+Nach weiterer Entwicklung kompilierte sich der Rust Compiler 2011 das
+erste Mal und am 15. Januar 2015 wurde Rust 1.0 offiziell angekündigt.
+
+\textbf{Die aktuelle Situation und Entwicklung von Rust}
+
+Die aktuelle Situation Rusts ist durch einen großen Zuwachs an
+Entwicklern geprägt. Laut der State of the Developer Nation 22nd Edition
+hat sich alleine innerhalb der letzten 2 Jahre die Anzahl an Mitgliedern
+in der Rust Community von 600.000 auf 2,2 Millionen erhöht und somit
+fast vervierfacht.
+
+Außerdem wurde am 8. Februar 2021 die Rust Foundation gegründet, eine
+Non-Profit-Organisation, welche sich dafür einsetzt, die an Rust
+beteiligten Entwickler zu unterstützen. Dabei kommen die Direktoren der
+Rust Foundation aus den 5 Gründerfirmen, namentlich Google, Mozilla,
+AWS, Huawei und Microsoft, welche jährlich 300.000 € spenden.
+
+Die Zukunftspläne von Rust bestehen aus drei großen Zielen, nämlich den
+Einstieg zu vereinfachen und die Lernkurve zu senken, es Nutzern besser
+zu ermöglichen, sich untereinander zu helfen, und das gesamte Projekt
+der Weiterentwicklung Rusts übersichtlicher zu machen. Für die Senkung
+der Lernkurve plant man unter anderem, den Compiler zu verbessern und
+die Sprache zu erweitern, damit man durch Code besser vermitteln kann,
+was man möchte. Das Ziel, das Nutzer sich untereinander besser helfen
+können, soll durch eine Verbesserung des Librarysystems und den Support
+von Libraryauthoren geschehen und die Weiterentwicklung Rusts soll durch
+klare Problemstellungen mit einer Angabe der nächsten erforderlichen
+Schritte und eine eindeutige Aufgabenzuweisung erfolgen.
+
+Die aktuelle Version von Rust (Stand 16. November 2023) ist Version
+1.74.0.
+
+\textbf{Motivation zur Entwicklung von Rust}
+
+Die Motivation Rust zu entwickeln bekam Greaygon Hoare als zu Hause in
+den 21. Stock laufen musste, da der Aufzug nicht funktionierte und er
+sich fragte, wieso man nicht mal einen fehlerfrei laufenden Aufzug
+programmieren könnte. Aufgrund dieses Vorfalls begann Hoare weiter über
+den damaligen Zustand von C++ nachzudenken, woraufhin ihm C++s Schwächen
+wie zum Beispiel unsichere Memorybehandlung oder keine Kontrolle über
+Parallelität in den Sinn kamen. Hinzu kam, dass zu dem damaligen
+Zeitpunkt die neu erschienen Sprachen alle die Nische, in der sich C++
+befand, gemieden haben, weswegen man trotzdem auf C++ zurückgreifen
+musste. Dies führte schließlich zu der Idee, eine Programmiersprache
+entwickeln zu wollen, die Sicherheit, Funktionalität und Effizienz an
+erste Stelle stellt.
+
+\textbf{Wozu wurde Rust entwickelt und in welchen Bereichen benutzt man
+Rust?}
+
+Rust wurde entwickelt, um eine sicherere Alternative zu C++ zu sein,
+welche jedoch eine mindestens genauso schnelle und gut Performance
+bietet. Aufgrund dessen kann Rust in einer Vielzahl an
+Programmierbereichen angewendet werden, jedoch hat man sich 2018 auf
+vier Bereiche fokussiert, für die man Rust besonders verbessert:
+Kommandobefehle, Web-Assembly, Netzwerke und den Bereich Embedded
+Systems.
+
+\textbf{Von wem wird Rust heutzutage benutzt?}
+
+Rust wird aktuell von über 100 verschiedenen Firmen, meistens welche mit
+dem Fokus auf Softwareentwicklung, verwendet. Ein Beispiel eines großen
+Projektes, welches Rust benutzt, ist Mozilla Firefox. Nachdem Mozilla
+bei der Erstellung von Rust mitgeholfen hat, benutzen sie die
+Programmiersprache auch in ihrem Server. Dort wird Rust für die Stylo,
+CSS Engine des Browsers, benutzt. Dadurch sind nun etwas mehr als 10\%
+des gesamten Firefox-Codes in Rust geschrieben. Weitere Beispiele großer
+Projekte mit Rust Nutzung sind das Android Open-Source-Projekt, in
+welches Rust innerhalb der letzten paar Jahre integriert wurde, das
+Designtool Figma, welches aufgrund der nicht mehr ausreichenden
+Serverleistung mit TypeScript in Rust umgeschrieben wurde, die
+Kommunikationsapp Discord, welche zur Performanceverbesserung von Go zu
+Rust wechselte und das Betriebssystem Linux, welches seit der Version
+6.1 jetzt auch Rust Support besitzt.
+
+\textbf{Die Besonderheiten der Programmiersprache Rust}
+
+\textbf{Besondere Eigenschaften}
+
+\textbf{Memory Safety ohne Garbage Collector -- Das Eigentümersystem}
+
+Im Gegensatz zu vielen anderen Sprachen benötigt Rust weder Memory
+Safety, wobei das Programm Memory explizit zuordnen und freistellen
+muss, noch Garbage Collection, wobei ständig nach nicht mehr genutzter
+Memory Ausschau gehalten wird. Rust benutzt dafür das Eigentümersystem.
+Dies bedeutet, dass eine Variable jederzeit genau einen Eigentümer
+besitzt. Solange dieser Eigentümer gültig ist, ist auch die Variable
+gültig, danach verfällt sie automatisch wieder, wodurch weder Memory
+Safety noch Garbage Collection nötig sind.
+
+Bei dem oben genannten Prinzip tritt natürlich die Frage auf, was
+passiert, wenn man eine neue Variable mit dem Wert einer bereits
+erstellen Variable initialisiert, zum Beispiel erstellt man erst x1 und
+initialisiert dann x2 = x1. Dabei können je nach Datentyp zwei
+unterschiedliche Ereignisse in Kraft treten: Sollte die Variable einen
+Wert besitzen, welcher nicht einmalig ist (zum Beispiel eine Zahl), dann
+würde die neu erstellte Variable lediglich den Wert der alten kopieren
+und es würden zwei Variablen gleichen Wertes existieren. Sollte jedoch
+ein einmaliger Datentyp im Spiel sein, wie ein erstellter String, dann
+würden, sollte die neue Variable nur die Werte der Alten kopieren, beide
+Variablen auf den gleichen String zugreifen, was nachdem beide Variablen
+nicht mehr gültig sind, zu Problemen führen würde. Dieses Problem wird
+gelöst, in dem die neue Variable den Wert der früher erstellen erhält
+und diese danach ungültig wird. So existiert weiterhin nur eine Variable
+mit dem gleichen, einmaligen, Wert.
+
+Sollte man jedoch einzigartige Datentypen, wie einen String, kopieren
+wollen, gibt es dafür die clone()- Methode, welche entsprechende
+Datentypen kopiert.
+
+\textbf{Zero-Cost Abstractions}
+
+Zero-Cost Abstractions bedeutet, dass man ein hohes Level an
+Abstraktionen, zum Beispiel durch Funktionen, in seinem Code
+unterbringen kann und diese keine Runtimekosten verursachen. Dies führt
+dazu, dass Entwickler komplexe Ideen umsetzten und ein hohes Codelevel
+verwenden könne, ohne dass dabei zusätzliche Kosten entstehen. Dies
+funktioniert aufgrund der Kombination von Rusts Memoryverhalten und der
+Arbeitsweise von Rusts Compiler, welcher allen Code in Maschinensprache
+konvertiert.
+
+\textbf{Fearless Concurrency}
+
+Eine von Rusts Eigenschaften ist es, dass Programmierer problemlos
+parallel programmieren können, ohne auf die bei anderen
+Programmiersprachen vorhandenen Probleme wie Race Conditions, wobei zwei
+Threads zur gleichen Zeit auf eine Variable zugreifen, Deadlocks, wobei
+mehrere Threads mehrere, gleiche Variablen brauchen und jeder auf einen
+Teil der benötigten Variablen zugreift, wodurch beide Threads nun auf
+die Variablen, die der jeweils andere Thread besitzt, zugreifen müssen
+und, da keiner der Threads nachgibt, das Programm an der Stelle
+festsitzt.
+
+Rusts Standardbibliothek alleine unterstützt 4 verschiedene
+Möglichkeiten, Parallelismus zu nutzen.
+
+Variante eins ist die alleinige Nutzung von Threads. Dabei werden mit
+Hilfe von thread::spawn threads erzeugt, welche nach der Bewältigung
+ihrer Aufgabe schlafen gelegt werden. Am Ende der Methode oder Schleife
+kann durch die join() Methode dafür gesorgt werden, dass die Threads
+warten, bis alle Threads ihre Aufgabe beendet haben.
+
+Die zweite Möglichkeit ist das Senden von Nachrichten zwischen
+verschiedenen Threads. Die Idee dieser Möglichkeit stammt dabei von der
+Programmiersprache Go, welche das Konzept berühmt machte. In Rust wird
+für das Senden von Nachrichten zuerst ein Channel erstellt, durch welche
+die Nachrichten später geschickt werden. Jeder Channel besteht dabei aus
+dem Sender, welcher die Nachricht sendet und den Empfänger, welcher die
+Nachrichten empfängt. Durch das Aufrufen von entsprechenden Methoden
+werden die Nachrichten dann durch den Channel vom Sender geschickt und
+vom Empfänger empfangen. Dabei können die geschickten Nachrichten nicht
+nur Textnachrichten sein, sondern zum Beispiel auch Values. Bei
+verschickten Values gibt der Sender sein Eigentum der Variable an den
+Empfänger weiter und kann danach nicht mehr auf diese zugreifen. Der
+Channel wird geschlossen, sobald entweder Sender oder Empfänger nicht
+mehr gültig sind.
+
+Variante Drei um mit Parallelität zu arbeiten ist die Shared-State
+Parallelität. Dabei wird ein Datenpool erstellt, auf den alle Threads
+über Mutexe zugreifen können. Mutex ist die Abkürzung für Mutual
+Exclusion, was bedeutet, dass zum Zeitpunkt X nur ein Thread A auf eine
+Ressource zugreifen kann. Möchte ein anderer Thread B auch auf diese
+Ressource zugreifen, dann muss er warten. Dies ist möglich, indem Thread
+A vorher anfragt, ob er das sogenannte Lock für die Ressource haben
+kann, wodurch diese nur für ihn zugänglich wird. Nachdem Thread A seine
+Aufgabe, für die die Ressource benötigt wurde, erfüllt hat, gibt er das
+Lock wieder ab und Thread B kann nun das Lock bekommen und seine Aufgabe
+erfüllen. Bei der Shared-State Parallelität wird genau dieses Prinzip
+der Mutual Exclusion auf den Pool von Ressourcen angewandt.
+
+Möglichkeit 4 des Umgangs mit Parallelität sind die Eigenschaften Send
+und Sync. Diese befinden sich, im Vergleich zu den Varianten 1-3, nicht
+in der Standardbibliothek, sondern sind direkt in die Sprache
+integriert. Send und Sync sind dabei Eigenschaften, welche alle Values
+erhalten. Sent steht dafür, dass ein Value zwischen zwei Threads
+verschoben werden darf, wobei wie beim Senden in Möglichkeit Zwei das
+Eigentum übergeben wird. Sync bedeutet, dass ein Value von mehreren
+Threads bearbeitet werden kann, aber immer nur von einem gleichzeitig,
+womit es praktisch wie ein Mutex funktioniert. Die Send und Sync
+Eigenschaften werden automatisch an die entsprechenden Values vergeben
+und es wird empfohlen, diese nicht zu ändern.
+
+\textbf{Unsafe Rust}
+
+Da bei Rust die Sicherheit des Programms im Vordergrund steht, gibt der
+Compiler, falls er sich unsicher ist, ob der Code funktioniert, eine
+Warnung aus. Wenn man aber weiß, was man tut, oder es für das Programm
+erforderlich ist, kann man durch die Verwendung des Schlüsselwortes
+„unsafe`` in Rusts unsicheren Modus wechseln. Im unsicheren Modus kann
+man 5 Aktionen ausführen, die sonst nicht möglich sind: Man kann rohe
+Pointer (Pointer, die nicht gültig sein müssen, null sein können und die
+normalen Pointeregeln ignorieren) dereferenzieren, eine unsichere
+Funktion oder Methode aufrufen, auf eine veränderbare, statische,
+Variable zugreifen oder sie verändern, eine unsichere Eigenschaft (Send
+und Sync) implementieren und auf das Feld einer Union zugreifen. Sollte
+man das unsichere Rust benutzen, checkt der Compiler zwar trotzdem den
+gesamten Code, der unsichere Teil des Codes wird jedoch nicht auf
+Memoryfehler überprüft.
+
+\textbf{Die Infrastruktur von Rust}
+
+\textbf{Cargo}
+
+\textbf{Paket Management mit Cargo}
+
+Das Paketmanagement wird in Rust mit einem Paket-Manager namens Cargo
+durchgeführt.
+
+Libraries fallen in Rust unter den Oberbegriff Crates, wobei bei diesen
+zwischen einer Library Crate und einer Binary Crate unterschieden wird.
+Library Crates sind Rusts Äquivalente zu Libraries in anderen Sprachen,
+während Binary Crates eigene Programme mit einer main() Funktion, welche
+man kompilieren kann, sind.~
+
+Cargo ist dafür zuständig, dass man in Rust problemlos Crates verwenden
+kann. Um dies zu gewährleisten, übernimmt Cargo für jedes Paket die
+folgenden 4 Aufgaben: Es verwaltet die Metadaten des Pakets, es holt die
+Pakete und kümmert sich um die benötigten Abhängigkeiten, es ruft ein
+anderes Tool auf, welches die Möglichkeiten besitzt, mit den geholten
+Paketen umzugehen und es macht das Arbeiten mit den Paketen innerhalb
+von Rust durch eine einheitliche Paketverwaltung einfacher. Außerdem
+hilft Cargo auch bei dem Arbeiten an Paketen, da es die Option besitzt,
+für selbst erstellte Pakete direkt ein Git-Repository zu errichten und
+diese zu kompilieren.
+
+\textbf{Dependency Management mit Cargo}
+
+Abhängigkeiten werden mit zwei Dateien namens Cargo.toml und Cargo.lock
+gemanagt. Cargo.toml ist dabei eine vom Nutzer geführte Datei, in welche
+für alle genutzten Pakete ihre Abhängigkeiten und ihre aktuelle Version
+geschrieben werden, während Cargo.lock von Cargo selbst geführt ist und
+spezifische Informationen zu den Abhängigkeiten aller genutzten Pakete
+erhält. Es gibt pro Programm, insofern es Pakete benutzt, sowohl einmal
+Cargo.toml als auch Cargo.lock und beide werden in der Root des Projekts
+gespeichert.
+
+\textbf{Weitere Funktionen von Cargo}
+
+Cargo verfügt über eine Vielzahl von Funktionen, von welchen im
+Folgenden einige erläutert werden.
+
+Eine wichtige Funktion Cargos ist die Testunterstützung für Benutzer.
+Mit Hilfe von Cargo können Benutzer einfach Tests, wie Binary Tests,
+Unit Tests, Integration Tests oder Benchmarks schreiben und diese mit
+Hilfe der cargo test Operation testen.
+
+Eine weitere Nutzungsmöglichkeit Cargos ist das Kompilieren von Paketen.
+Mit der cargo build Funktion können Pakete direkt von Cargo mit all
+ihren Abhängigkeiten kompiliert werden.
+
+Außerdem ist es möglich, mit Hilfe von Cargo das aktuelle Paket auf
+Fehler zu überprüfen (cargo check), die Dokumentation für ein Paket zu
+erstellen (cargo doc), ein Programm oder ein Beispiel für ein Paket
+laufen zu lassen (cargo run) und alle Abhängigkeiten für ein Paket zu
+holen und sicherzustellen, dass diese in Cargo.lock vorhanden sind und
+es keine Cargo.lock gibt, die entsprechende Datei zu erstellen (cargo
+fetch).
+
+Crates.io
+
+Crates.io ist die Hauptseite zum Veröffentlichen, Finden und
+Herunterladen von Rust Crates. Sie besitzt über 130.000 Crates mit
+stündlichen Neuzugängen und nahezu minütlichen Updates von bereits
+vorhandenen Crates. Wenn man Cargo zum Herunterladen von Crates nimmt,
+werden diese auch automatisch von Crates.io heruntergeladen.
+
+\textbf{Die Rust Dokumentation}
+
+Rust besitzt eine, aus sechs Teilen bestehende, ausführliche
+Dokumentation, welche sich auf der offiziellen Rust Homepage finden
+lässt. Der erste Abschnitt befasst sich dabei mit Rusts enormer
+Standard-Bibliothek, auf welche im Programmierteil dieser Arbeit noch
+genauer eingegangen wird. Teil Zwei handelt von den verschiedenen Rust
+Versionen. Dieser Teil der Dokumentation hält fest, welche Versionen es
+von Rust gegeben hat, wann diese erschienen und welche Änderungen die
+jeweiligen Versionen mit sich brachten. Außerdem wird erklärt, wie man
+sein Rust-Projekt von einer alten Version in eine neue überträgt und was
+man dabei beachten muss. Bereich Drei der Rust Dokumentation geht über
+Cargo. In diesem wird beschrieben, wie man Cargo installiert und die
+ersten Schritte mit Cargo. Des Weiteren gibt es noch einen Guide zu
+sämtlichen Cargo Funktionen, von denen einige bereits in dem
+entsprechenden Abschnitt dieser Arbeit erklärt wurden. Segment Vier der
+Dokumentation handelt von dem Rustdoc Tool, welches dabei hilft
+Dokumentationen für geschriebenen Rust Code zu erstellen. Auf dieses
+Tool wird im folgenden Abschnitt noch genauer eingegangen. Die fünfte
+Sektion der Dokumentation handelt von dem Rust Compiler, welcher in
+einem der folgenden Abschnitte noch besonders behandelt wird. Der
+sechste und letzte Abschnitt der Rust Dokumentation ist der Fehlerindex.
+In diesem gibt es zu jedem von Rusts knapp 800 registrierten Fehlern
+einen Eintrag, in welchem der Fehler beschrieben wird, oft ein Stück
+fehlerhafter Code gezeigt wird und häufig auch ein Lösungsansatz
+vorgeschlagen wird.
+
+Abseits von den offiziellen Dokumentationen gibt es auf Rust Homepage
+noch den Link zu einem Einführungsbuch zu Rust. Dieses wurde von Steve
+Klabnik und Carol Nichols mit Hilfe der Rust Community geschrieben und
+behandelt die Installation von und die ersten Schritte mit Rust,
+Informationen zu Rusts Besonderheiten, zum Beispiel das
+Eigentümersystem, eine generelle Sammlung an Informationen für
+Einsteiger und Fortgeschrittene und ein kleines Einstiegsprojekt,
+welches einige von Rusts Mechaniken und Besonderheiten zeigt.
+
+\textbf{Das Rustdoc Tool}
+
+Rustdoc ist ein Tool zum Dokumentieren von Rust Projekten, welches man
+zum Bedienen Cargos benutzt. Man kann mit Hilfe von Rustdoc eine
+Dokumentationsdatei erstellen, in welche automatisch die Dokumentation
+der programmierten Funktionen geschrieben wird. Dies geschieht, indem
+der Benutzer seine Kommentare vor oder innerhalb einer Funktion speziell
+markiert, welche dann im Zusammenhang mit der Funktion in der
+Dokumentationsdatei erscheinen.
+
+\textbf{Rustc}
+
+Rustc ist der Rust Compiler, welcher von Rust selbst bereitgestellt
+wird. Auch wenn zum Kompilieren häufig Cargo verwendet wird, erfolgt der
+Prozess des Kompilierens meistens durch den Rust Compiler.
+
+Eine Besonderheit von Rustc ist, dass es beim Kompilieren auch direkt
+eine Nummer von Lints, welche es besitzt, durchläuft. Lints sind
+Werkzeuge, welche helfen, den geschrieben Code zu verbessern und dem
+Benutzer Warnungen senden, wenn es im Code Stellen gibt, welche diesen
+verschlechtern, die jedoch keine Fehler sind. Der Rust Compiler besitzt
+5 Level von Lints: Allow, Warn, Force-Warn, Deny und Forbid. Allow ist
+dabei das kleinste Level und muss manuell aktiviert werden, bevor es dem
+Benutzer Nachrichten sendet. Es warnt vor Fehlern, wie zum Beispiel dem
+Fehlen einer Dokumentation. Warn und Force-Warn sind Stufe 2 und 3 von
+Lints und geben Warnungen für Codeteile, welche zum Beispiel
+unerreichbare oder ungenutzte Variablen oder Funktionen erhalten. Der
+Unterschied zwischen Warn und Force-Warn ist, dass das Level von Warn
+Lints in den Einstellungen deaktiviert werden kann und von Force-Warn
+Lints nicht. Deny und Forbid Lints werden, wenn ignoriert, einen Fehler
+produzieren. Der Unterschied zwischen ihnen ist derselbe wie zwischen
+Stufe 2 und 3. Der Rustc kann außerdem das Level von Lints der Stufe 1,
+2 und 4 anpassen und Gruppen von Lints aktivieren oder deaktivieren.
+
+Die Plattformunterstützung des Rust Compilers lässt sich in drei Level
+einteilen. Dabei gibt es das „guaranteed to work`` Level (Level 1), für
+welches es offizielle Releases und regelmäßig Tests von Rust gibt, das
+„guaranteed to build`` Level (Level 2), für welches es offizielle
+Releases, aber keine regelmäßigen Tests von Rust gibt, und Level 3,
+welches Rust an sich unterstützt, aber wofür nichts Offizielles von Rust
+erscheint. Die drei Level lassen sich zudem in die Kategorie mit und
+ohne Host Tool (natürlicher Support für unterstützende Tools wie Cargo)
+unterscheiden.
+
+\textbf{Rustup}
+
+Rustup ist ein Tool für das Installieren und Updaten von Rust. Da Rust
+auf vielen verschiedenen Plattformen releast wird, sorgt Rustup dafür,
+dass man bei Updates die richtige und neueste Version herunterlädt.
+
+\textbf{IDEs}
+
+Rust besitzt eine Vielzahl von IDEs, darunter auch in berühmten
+Codingprogrammen wie Eclipse, IntelliJ IDEA und Visual Studio Code,
+welche allesamt Rust Support besitzen und für Rust gut funktionierende
+Compiler haben oder sogar zusätzliche Tools, welche man sich
+herunterladen kann, zum Beispiel den Rust-Analyzer in Visual Studio
+Code.
+
+Besonders hervorstechen tut unter den IDEs aber eine, und das ist
+RustRover von JetBrains, eine für Rust konzipierte. Sie befindet sich
+derzeit noch in Entwicklung, soll jedoch nach der Fertigstellung Hilfe
+für das Schreiben, Verstehen und Analysieren von Code und Syntax,
+Unterstützung für das Testen, Ausführen und Debuggen von Programmen,
+Performance- und Datenanalyse, Unterstützung für das Management von
+Projekten und Support für die Webentwicklung mit Rust anbieten.
+
+\textbf{Die Rust Community}
+
+Ein weiterer wichtiger Bestandteil ist die Community von Rust. Neben der
+Hilfe, welche sie bei der Weiterentwicklung der Sprache leistet und der
+Hilfe der durch die unzähligen von der Community entwickelten Crates
+spielen auch die große Menge an Rust Foren eine wichtige Rolle.
+
+Neben berühmten Kommunikationsplattformen wie Reddit und Stack Overflow
+gibt es auf der Rust Homepage alleine eine Unmenge an Links zu Internet
+Relay Chats, in denen man sich mit anderen Programmieren austauschen
+kann. Diese Gespräche gehen von nationalen Chats über Diskussionen für
+spezielle Themen wie Browser oder Tools, welche in Rust geschrieben
+wurden, bis hin zu verschiedenen Chats für Teams, welche an Rust
+mitarbeiten.
+
+\textbf{Rust Playground}
+
+Der Rust Playground ist eine Entwicklungsumgebung, welche sich besonders
+dazu eignet, schnell Code auszuprobieren, wenn man gerade keinen
+Compiler verfügbar hat, oder ihn mit anderen zu teilen. Rust Playground
+verfügt dabei über die Fähigkeiten im Debug oder Release-Modus zu
+kompilieren, es verfügt über die 100 beliebtesten Crates von Crates.io
+und es besitzt eine Funktion, mit der man den geschriebenen Code auf
+GitHub hochladen und speichern kann.
+
+\textbf{Das Programm}
+
+\textbf{Wichtige benutzte Libraries}
+
+\textbf{Die Rust Standardbibliothek}
+
+Die Rust Standardbibliothek ist eine Bibilothek aus der offiziellen Rus
+Dokumentation. Sie funktionmiert dabei als eine Art Grundlage der
+gesamten Programmierpsrache Rust und bietet allen Programmierenen,
+unabhängig des Projektes, eine große Anzahl an verschiedenen
+Unterstützungsmöglichkeiten, um das Coden in Rust so einfach, sicher und
+effizient wie möglich zu gestalten. Dafür besitzt sie eine Vielzahl an
+Kerntypen, wie zum Beispiel vec\textless T\textgreater, der Kerntyp
+Vector, womit man einen Vector erstellen kann, wofür man sonst eine
+extra Bibilothek bräuchte. Des weiteren vefügt die Standardbibliothek
+von Rust noch über Operationen auf primitiven Typen, Standard Macros,
+und Modulen. Dabei sind Module besonders vielseitig und gehen von
+parallelem Programmieren durch die Erstellung von Threads mit
+std::thread über das Abrbeiten mit In-/Output durch das std::io Modul
+bis hin zur Fehlerbehandlung mit std::error.
+
+Für jede der eben genannten gennanten Unterstützungsmöglichkeitenbietet
+die Dokumentation der Rust Standardbibliothek eine große Menge an
+weiteren Informationen auf den entsprechenden Seiten. Auf der Seite des
+io Moduls, welches für das geschrieben Programm von enormer Wichtigkeit
+war, findet man zum Beispiel die Liste aller modulspezifischen
+Strukturen, Eigenschaften und Funktionen. Des weiteren werden die
+Kernfunktionend es Moduls anhand eines kurzen Codeabschnitts
+demonstiert, welche man direkt durch einen Link zu dem im vorherigen
+Thema bereits beschriebenen Rust Playground ausprobieren.
+
+\end{document}
